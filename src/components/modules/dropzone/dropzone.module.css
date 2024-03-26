@@ -14,6 +14,16 @@
 
   background-color: rgb(226, 232, 236);
   border: 10px dashed rgb(255, 208, 239);
+
+  color: rgb(77, 77, 77);
+  text-align: center;
+  font-weight: bold;
+
+  user-select: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dropzone_img {
   width: 100%;

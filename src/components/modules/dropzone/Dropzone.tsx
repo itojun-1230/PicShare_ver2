@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import styles from './dropzone.module.css';
 import { Box } from '@mui/material';
 import { ViewImage } from './Image';
+import { Guide } from './Guide';
 
 export const Dropzone = (props: {
   img: string | undefined;
@@ -28,7 +29,7 @@ export const Dropzone = (props: {
     <Box className={styles.dropzone}>
       <Box  {...getRootProps()} className={styles.dropzone_main}>
         <input {...getInputProps()} />
-        {props.img === undefined && <p>a</p>}
+        {props.img === undefined && <Guide />}
         {props.img != undefined && <ViewImage img={props.img} />}
       </Box>
     </Box>
