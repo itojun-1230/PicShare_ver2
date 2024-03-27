@@ -44,10 +44,14 @@
   opacity: 0.8;
 }
 .upload {
-  color: white;
+  color: aliceblue;
   background-color: rgb(238, 130, 238);
   width: fit-content;
   margin: 10px;
 
   opacity: 0.8;
+}
+.upload:hover {
+  color: rgb(238, 130, 238);
+  background-color: aliceblue;
 }
