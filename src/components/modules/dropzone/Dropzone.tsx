@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 import { ViewImage } from './Image';
 import { Guide } from './Guide';
 import { UploadMenu } from './upload/UploadMenu';
+import { Cancel } from './Cancel';
 
 export const Dropzone = () => {
   const [img, setImg] = useState<string | undefined>(undefined);
@@ -33,11 +34,17 @@ export const Dropzone = () => {
         sx={{ pointerEvents: img === undefined ? "auto" : "none" }}
         {...getRootProps()}
       >
-        {img != undefined && <ViewImage img={img} />}
+        {img === undefined && <Guide /> }
+        {img != undefined && <>
+          <Cancel setImg={setImg}/>
+          <ViewImage img={img} />
+        </>}
       </Box>
-
-      {img === undefined && <Guide /> }
-      {img != undefined && <UploadMenu img={img} />}
+      {img != undefined && (
+      <>
+        <UploadMenu img={img} />
+      </>
+      )}
     </Box>
   );
 }
