@@ -1,10 +1,8 @@
-import { IconButton, InputAdornment, TextField } from "@mui/material"
+import { IconButton, InputAdornment, TextField } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import styles from "../dropzone.module.css";
+import styles from '../dropzone.module.css';
 
-export const Id = (props: {
-  id: string | undefined,
-}) => {
+export const Id = (props: { id: string | undefined }) => {
   console.log(props.id);
 
   return (
@@ -18,7 +16,7 @@ export const Id = (props: {
           <InputAdornment position="end">
             <IconButton
               onClick={() => {
-                alert("Copied!");
+                alert('Copied!');
                 navigator.clipboard.writeText(props.id!);
               }}
               onInput={() => {}}
@@ -27,8 +25,8 @@ export const Id = (props: {
               <ContentCopyIcon />
             </IconButton>
           </InputAdornment>
-        )
+        ),
       }}
     />
-  )
-}
+  );
+};
