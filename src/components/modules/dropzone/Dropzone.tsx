@@ -21,7 +21,7 @@ export const Dropzone = () => {
 
   const { getRootProps } = useDropzone({
     accept: {
-      'image/png': ['.png', '.jpg', '.jpeg'],
+      'image/png': ['.png', '.jpg', '.jpeg'], // eslint-disable-line
     },
     onDrop,
   });
