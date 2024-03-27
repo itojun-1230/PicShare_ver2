@@ -31,6 +31,7 @@ export const UploadMenu = (props: {
   return (
     <Box className={styles.uploadMenu}>
       {id && <Id id={id} />}
+      <Upload img={props.img} id={id} />
     </Box>
   )
 }

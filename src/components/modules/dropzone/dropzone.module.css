@@ -37,8 +37,17 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .id_menu {
   background-color: aliceblue;
+  opacity: 0.8;
+}
+.upload {
+  color: white;
+  background-color: rgb(238, 130, 238);
+  width: fit-content;
+  margin: 10px;
+
   opacity: 0.8;
 }
