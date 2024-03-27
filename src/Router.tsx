@@ -1,7 +1,7 @@
 import { Outlet, ScrollRestoration, createBrowserRouter } from 'react-router-dom';
-import { UploadPage } from './pages/upload/Upload';
 import { ViewPage } from './pages/view/View';
 import { Header } from './components/modules/header/Header';
+import { Dropzone } from './components/modules/dropzone/Dropzone';
 
 export const Router = createBrowserRouter([
   {
@@ -14,8 +14,8 @@ export const Router = createBrowserRouter([
       </div>
     ),
     children: [
-      { index: true, element: <UploadPage /> },
-      { path: 'upload', element: <UploadPage /> },
+      { index: true, element: <Dropzone /> },
+      { path: 'upload', element: <Dropzone /> },
       { path: 'view', element: <ViewPage /> },
     ],
   },

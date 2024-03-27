@@ -1,25 +1,26 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import styles from './dropzone.module.css';
 import { Box } from '@mui/material';
 import { ViewImage } from './Image';
 import { Guide } from './Guide';
+import { UploadMenu } from './upload/UploadMenu';
 
-export const Dropzone = (props: {
-  img: string | undefined;
-  setImg: React.Dispatch<React.SetStateAction<string | undefined>>;
-}) => {
+export const Dropzone = () => {
+  const [img, setImg] = useState<string | undefined>(undefined);
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
 
     const reader = new FileReader();
     reader.readAsDataURL(acceptedFiles[0]);
     reader.onload = () => {
       if (typeof reader.result != "string") return;
-      props.setImg(reader.result);
+      setImg(reader.result);
     };
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({
+
+  const { getRootProps } = useDropzone({
     accept: {
       'image/png': ['.png', '.jpg', '.jpeg'],
     }, onDrop
@@ -27,11 +28,16 @@ export const Dropzone = (props: {
 
   return (
     <Box className={styles.dropzone}>
-      <Box  {...getRootProps()} className={styles.dropzone_main}>
-        <input {...getInputProps()} />
-        {props.img === undefined && <Guide />}
-        {props.img != undefined && <ViewImage img={props.img} />}
+      <Box
+        className={styles.dropzone_main}
+        sx={{ pointerEvents: img === undefined ? "auto" : "none" }}
+        {...getRootProps()}
+      >
+        {img != undefined && <ViewImage img={img} />}
       </Box>
+
+      {img === undefined && <Guide /> }
+      {img != undefined && <UploadMenu img={img} />}
     </Box>
   );
 }

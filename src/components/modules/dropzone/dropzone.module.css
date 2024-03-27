@@ -32,3 +32,13 @@
 
   opacity: 0.6;
 }
+
+.uploadMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+.id_menu {
+  background-color: aliceblue;
+  opacity: 0.8;
+}
