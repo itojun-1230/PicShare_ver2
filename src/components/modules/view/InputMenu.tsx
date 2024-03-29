@@ -8,31 +8,11 @@ export const InputMenu = (props: {
   setId: React.Dispatch<React.SetStateAction<string>>;
   setImg: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const submit = async () => {
-    const url = `https://script.google.com/macros/s/AKfycbxOp_XR5QFehkuSJ2uL8LY91eecDYYLEhMBxWpGtMBzWtTeWRUnwfAncnjBOTf-Y9U/exec?id=${props.id}`;
-    await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',     // eslint-disable-line
-        'Content-Type': 'text/plain',   // eslint-disable-line
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if (data.status === 200) props.setImg(data.img);
-        alert(data.message);
-      })
-      .catch((error) => {
-        console.error('There was a problem with your fetch operation:', error);
-      });
-  };
 
   return (
     <Box className={styles.inputMenu}>
       <IdInput id={props.id} setId={props.setId} />
-      <Submit submit={submit} />
+      <Submit setImg={props.setImg} id={props.id} />
     </Box>
   );
 };
