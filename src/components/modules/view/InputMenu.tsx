@@ -2,15 +2,15 @@ import { Box } from "@mui/material";
 import { Submit } from "./Submit";
 import { IdInput } from "./Id";
 import styles from "./view.module.css";
-import { useState } from "react";
 
 export const InputMenu = (props: {
+  id: string;
+  setId: React.Dispatch<React.SetStateAction<string>>;
   setImg: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const [id, setId] = useState<string>("");
 
   const submit = async () => {
-    const url = `https://script.google.com/macros/s/AKfycbxOp_XR5QFehkuSJ2uL8LY91eecDYYLEhMBxWpGtMBzWtTeWRUnwfAncnjBOTf-Y9U/exec?id=${id}`;
+    const url = `https://script.google.com/macros/s/AKfycbxOp_XR5QFehkuSJ2uL8LY91eecDYYLEhMBxWpGtMBzWtTeWRUnwfAncnjBOTf-Y9U/exec?id=${props.id}`;
     await fetch(url, {
       method: 'GET',
       headers: {
@@ -32,7 +32,7 @@ export const InputMenu = (props: {
 
   return (
     <Box className={styles.inputMenu}>
-      <IdInput id={id} setId={setId} />
+      <IdInput id={props.id} setId={props.setId} />
       <Submit submit={submit} />
     </Box>
   )

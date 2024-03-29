@@ -3,20 +3,22 @@ import styles from "./view.module.css";
 import { useState } from "react";
 import { InputMenu } from "./InputMenu";
 import { Cancel } from "./Cancel";
+import { ViewImg } from "./ViewImg";
 
 export const ViewBox = () => {
   const [img, setImg] = useState<string>("");
+  const [id, setId] = useState<string>("");
 
   return (
     <Box className={styles.viewbox}>
       {img && (
         <>
-          <img src={img} alt="画像" />
-          <Cancel setImg={setImg} />
+          <ViewImg img={img} id={id} />
+          <Cancel setImg={setImg} setId={setId} />
         </>
       )}
       {!img && (
-        <InputMenu setImg={setImg} />
+        <InputMenu id={id} setId={setId} setImg={setImg} />
       )}
     </Box>
   )
