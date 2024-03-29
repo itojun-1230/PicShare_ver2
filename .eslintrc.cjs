@@ -41,11 +41,9 @@ module.exports = {
     '@typescript-eslint/naming-convention': [
       'error',
       {
-        //アロー関数はPascalCase
         selector: 'variable',
-        format: ['StrictPascalCase'],
-        leadingUnderscore: 'allow',
-        trailingUnderscore: 'allow',
+        modifiers: ['const'],
+        format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
       },
       {
         //boolean型の変数とboolean型を返す関数は接頭語指定
