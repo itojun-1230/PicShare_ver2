@@ -8,8 +8,8 @@ export const Upload = (props: { img: string; id: string | undefined }) => {
       {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'text/plain',
+          Accept: 'application/json',   // eslint-disable-line
+          'Content-Type': 'text/plain',   // eslint-disable-line
         },
         body: JSON.stringify({
           img: props.img,

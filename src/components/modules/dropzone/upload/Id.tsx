@@ -3,7 +3,6 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from '../dropzone.module.css';
 
 export const Id = (props: { id: string | undefined }) => {
-  console.log(props.id);
 
   return (
     <TextField

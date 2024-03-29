@@ -13,8 +13,8 @@ export const InputMenu = (props: {
     await fetch(url, {
       method: 'GET',
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'text/plain',
+        Accept: 'application/json',     // eslint-disable-line
+        'Content-Type': 'text/plain',   // eslint-disable-line
       },
     })
       .then((response) => {
