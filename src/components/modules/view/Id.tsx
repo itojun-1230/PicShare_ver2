@@ -8,6 +8,7 @@ export const IdInput = (props: {
     <TextField 
       value={props.id} 
       onChange={(e) => props.setId(e.target.value)}
+      label="IDを入力"
     />
   )
 }
