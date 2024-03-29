@@ -1,7 +1,8 @@
 import { Outlet, ScrollRestoration, createBrowserRouter } from 'react-router-dom';
-import { ViewPage } from './pages/view/View';
+
 import { Header } from './components/modules/header/Header';
 import { Dropzone } from './components/modules/dropzone/Dropzone';
+import { ViewPage } from './components/modules/view/ViewPage';
 
 export const Router = createBrowserRouter([
   {
