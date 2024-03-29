@@ -43,7 +43,7 @@ module.exports = {
       {
         selector: 'variable',
         modifiers: ['const'],
-        format: ['strictCamelCase','StrictPascalCase','UPPER_CASE']
+        format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
       },
       {
         //boolean型の変数とboolean型を返す関数は接頭語指定

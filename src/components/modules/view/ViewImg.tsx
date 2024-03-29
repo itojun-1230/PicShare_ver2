@@ -1,10 +1,7 @@
-import { Button, Link } from "@mui/material";
-import styles from "./view.module.css";
+import { Button, Link } from '@mui/material';
+import styles from './view.module.css';
 
-export const ViewImg = (props: {
-  img: string;
-  id: string;
-}) => {
+export const ViewImg = (props: { img: string; id: string }) => {
   return (
     <Button className={styles.viewImg}>
       <Link href={props.img} download={`${props.id}.png`}>
@@ -12,4 +9,4 @@ export const ViewImg = (props: {
       </Link>
     </Button>
   );
-}
+};
