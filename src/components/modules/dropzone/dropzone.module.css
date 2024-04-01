@@ -85,6 +85,8 @@
   color: #ff82fb;
   text-align: center;
   padding: 20px 40px;
+
+  max-width: 50vw;
 }
 .guide :hover{
   cursor: pointer;
