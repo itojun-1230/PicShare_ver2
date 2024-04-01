@@ -11,8 +11,8 @@ export const Header = () => {
       <AppBar position="static">
         <Toolbar className={styles.header}>
           <Box sx={{ width: '40%' }}>
-            <RouteButton path="/upload" text="Upload" />
-            <RouteButton path="/view" text="View" />
+            <RouteButton path="/PicShare_ver2/upload" text="Upload" />
+            <RouteButton path="/PicShare_ver2/view" text="View" />
           </Box>
           <Box sx={{ width: '30%' }}>
             <SnsButton href="https://github.com/itojun-1230" icon={<GitHubIcon />} />

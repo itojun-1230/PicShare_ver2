@@ -6,7 +6,7 @@ import { ViewPage } from './components/modules/view/ViewPage';
 
 export const Router = createBrowserRouter([
   {
-    path: '/',
+    path: 'PicShare_ver2/',
     element: (
       <div>
         <Header />
