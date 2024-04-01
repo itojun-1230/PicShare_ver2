@@ -28,24 +28,24 @@ export const Dropzone = () => {
 
   return (
     <Box className={styles.dropzone}>
+      {img === undefined && (
+        <Box sx={{zIndex: 1}}>
+          <Guide />
+        </Box>
+
+      )}
+      {img != undefined && (
+        <>
+          <Cancel setImg={setImg} />
+          <ViewImage img={img} />
+          <UploadMenu img={img} />
+        </>
+      )}
       <Box
         className={styles.dropzone_main}
         sx={{ pointerEvents: img === undefined ? 'auto' : 'none' }}
         {...getRootProps()}
-      >
-        {img === undefined && <Guide />}
-        {img != undefined && (
-          <>
-            <Cancel setImg={setImg} />
-            <ViewImage img={img} />
-          </>
-        )}
-      </Box>
-      {img != undefined && (
-        <>
-          <UploadMenu img={img} />
-        </>
-      )}
+      />
     </Box>
   );
 };

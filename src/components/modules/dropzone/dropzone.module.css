@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   position: absolute;
 }
@@ -75,4 +76,20 @@
   pointer-events: auto;
 
   color: rgb(238, 130, 238);
+}
+
+
+.guide {
+  display: inline-block;
+  border: 2px solid #ff82fb;
+  color: #ff82fb;
+  text-align: center;
+  padding: 20px 40px;
+}
+.guide :hover{
+  cursor: pointer;
+}
+
+.guide input {
+  display: none;
 }
