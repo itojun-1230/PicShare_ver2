@@ -19,7 +19,7 @@ export const Dropzone = () => {
     };
   }, []);
 
-  const { getRootProps } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: {
       'image/png': ['.png', '.jpg', '.jpeg'], // eslint-disable-line
     },
@@ -28,24 +28,29 @@ export const Dropzone = () => {
 
   return (
     <Box className={styles.dropzone}>
-      {img === undefined && (
-        <Box sx={{zIndex: 1}}>
-          <Guide />
-        </Box>
-
-      )}
-      {img != undefined && (
-        <>
-          <Cancel setImg={setImg} />
-          <ViewImage img={img} />
-          <UploadMenu img={img} />
-        </>
-      )}
       <Box
         className={styles.dropzone_main}
         sx={{ pointerEvents: img === undefined ? 'auto' : 'none' }}
         {...getRootProps()}
-      />
+      >
+        {img === undefined && (
+          <>
+            <input {...getInputProps()} />
+            <Guide />
+          </>
+        )}
+        {img != undefined && (
+          <>
+            <Cancel setImg={setImg} />
+            <ViewImage img={img} />
+          </>
+        )}
+      </Box>
+      {img != undefined && (
+        <>
+          <UploadMenu img={img} />
+        </>
+      )}
     </Box>
   );
 };

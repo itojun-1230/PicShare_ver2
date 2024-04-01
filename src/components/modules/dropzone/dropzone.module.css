@@ -77,21 +77,3 @@
 
   color: rgb(238, 130, 238);
 }
-
-
-.guide {
-  display: inline-block;
-  border: 2px solid #ff82fb;
-  color: #ff82fb;
-  text-align: center;
-  padding: 20px 40px;
-
-  max-width: 50vw;
-}
-.guide :hover{
-  cursor: pointer;
-}
-
-.guide input {
-  display: none;
-}
