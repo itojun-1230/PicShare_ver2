@@ -11,16 +11,15 @@ export const UploadMenu = (props: { img: string }) => {
   useEffect(() => {
     const time = new Date().getTime();
     const random = Math.floor(Math.random() * 10);
-    const origin = Number(`${time}${random}`).toString(36);
+    const origin = Number(time).toString(36);
 
-    let result: string | undefined = undefined;
-    for (let i = origin.length - 1; i >= 0; i--) {
-      if (origin[i] == '0') {
-        continue;
-      }
-      result = origin.slice(3, i + 1);
-      break;
+    let result = '';
+    // originをランダムに4文字にする
+    for (let i = 0; i < 4; i++) {
+      result += origin[Math.floor(Math.random() * origin.length)];
     }
+    result += random;
+
     setId(result);
   }, [props.img]);
 
