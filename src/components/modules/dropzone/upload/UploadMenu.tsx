@@ -10,7 +10,7 @@ export const UploadMenu = (props: { img: string }) => {
 
   useEffect(() => {
     const time = new Date().getTime();
-    const random = Math.floor(Math.random() * 100);
+    const random = Math.floor(Math.random() * 10);
     const origin = Number(`${time}${random}`).toString(36);
 
     let result: string | undefined = undefined;
@@ -18,7 +18,7 @@ export const UploadMenu = (props: { img: string }) => {
       if (origin[i] == '0') {
         continue;
       }
-      result = origin.slice(0, i + 1);
+      result = origin.slice(3, i + 1);
       break;
     }
     setId(result);
