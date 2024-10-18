@@ -4,7 +4,6 @@ import { Loading } from '@/components/atoms/loading/Loading';
 import { useState } from 'react';
 
 export const Upload = (props: { img: string; id: string | undefined }) => {
-
   const [isDisabled, setIsDisabled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isScuccess, setIsSuccess] = useState<boolean | undefined>(undefined);
@@ -17,10 +16,6 @@ export const Upload = (props: { img: string; id: string | undefined }) => {
       'https://script.google.com/macros/s/AKfycbxOp_XR5QFehkuSJ2uL8LY91eecDYYLEhMBxWpGtMBzWtTeWRUnwfAncnjBOTf-Y9U/exec',
       {
         method: 'POST',
-        headers: {
-          Accept: 'application/json',   // eslint-disable-line
-          'Content-Type': 'text/plain',   // eslint-disable-line
-        },
         body: JSON.stringify({
           img: props.img,
           id: props.id,
@@ -41,20 +36,20 @@ export const Upload = (props: { img: string; id: string | undefined }) => {
   };
 
   const getBackgroundColor = () => {
-    if( !isDisabled ) {
+    if (!isDisabled) {
       return 'rgb(238, 130, 238)';
     }
 
-    if( isScuccess ) {
+    if (isScuccess) {
       return 'rgb(138, 199, 90)';
-    }else {
+    } else {
       return 'rgb(255, 87, 82)';
     }
-  }
+  };
 
   return (
-    <Button 
-      onClick={UploadClick} 
+    <Button
+      onClick={UploadClick}
       className={`${styles.upload} ${isLoading ? styles.loading : ''}`}
       sx={{
         backgroundColor: getBackgroundColor(),

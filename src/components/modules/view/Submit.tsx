@@ -1,7 +1,7 @@
 import { Loading } from '@/components/atoms/loading/Loading';
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import styles from "./view.module.css"
+import styles from './view.module.css';
 
 export const Submit = (props: { setImg: React.Dispatch<React.SetStateAction<string>>; id: string }) => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -11,20 +11,18 @@ export const Submit = (props: { setImg: React.Dispatch<React.SetStateAction<stri
   const submit = async () => {
     setIsLoading(true);
     setIsDisabled(true);
-
     const url = `https://script.google.com/macros/s/AKfycbxOp_XR5QFehkuSJ2uL8LY91eecDYYLEhMBxWpGtMBzWtTeWRUnwfAncnjBOTf-Y9U/exec?id=${props.id}`;
     await fetch(url, {
       method: 'GET',
-      headers: {
-        Accept: 'application/json',     // eslint-disable-line
-        'Content-Type': 'text/plain',   // eslint-disable-line
-      },
     })
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        if (data.status === 200) props.setImg(data.img);
+        console.log(data); // デバッグ用にレスポンスを確認
+        if (data.status === 200) {
+          props.setImg(data.img);
+        }
         setIsSuccess(data.status === 200);
         setIsLoading(false);
         alert(data.message);
@@ -35,28 +33,27 @@ export const Submit = (props: { setImg: React.Dispatch<React.SetStateAction<stri
   };
 
   const getBackgroundColor = () => {
-    if( !isDisabled ) {
+    if (!isDisabled) {
       return 'rgb(238, 130, 238)';
     }
 
-    if( isScuccess ) {
+    if (isScuccess) {
       return 'rgb(138, 199, 90)';
-    }else {
+    } else {
       return 'rgb(255, 87, 82)';
     }
-  }
-  
+  };
 
   return (
-    <Button 
-      onClick={submit} 
-      onTouchEnd={submit} 
+    <Button
+      onClick={submit}
+      onTouchEnd={submit}
       className={`${styles.submit} ${isLoading ? styles.loading : ''}`}
       sx={{
         backgroundColor: getBackgroundColor(),
       }}
       disabled={isDisabled}
-      >
+    >
       <Loading text="submit" isLoading={isLoading} isScuccess={isScuccess} />
     </Button>
   );
